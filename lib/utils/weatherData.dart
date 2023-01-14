@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'weatherModel.dart';
 
+//&lang=tr tuhaf bişi return luyor
+
 class weatherData {
   Future<weather> getData(var latitude, var longitude) async {
     var uriCall = Uri.parse(

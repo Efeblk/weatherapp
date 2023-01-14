@@ -4,10 +4,11 @@ import 'package:flutter/src/widgets/framework.dart';
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:weatherapp/getLocation.dart';
-import 'package:weatherapp/weatherData.dart';
+import 'package:weatherapp/utils/getLocation.dart';
+import 'package:weatherapp/main.dart';
+import 'package:weatherapp/utils/weatherData.dart';
 
-import 'date.dart';
+import 'utils/utils.dart';
 
 var dayInfo = DateTime.now();
 //var dateFormat = DateFormat('EEEE, d MMM, yyyy').format(dayInfo);
@@ -66,26 +67,29 @@ class MyHomePage extends StatelessWidget {
                         ),
                       ]),
                     ),
-                    Image.network(
-                      'https:${data?.icon}',
-                      width: size.width * 0.36,
-                      fit: BoxFit.fill,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      '${data?.condition}',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 40,
-                          fontWeight: FontWeight.bold),
+                    Container(
+                      child: Column(
+                        children: [
+                          Image.network(
+                            'https:${data?.icon}',
+                            width: size.width * 0.36,
+                            fit: BoxFit.fill,
+                          ),
+                          Text(
+                            '${data?.condition}',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 40,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
                     ),
                     SizedBox(
                       height: 5,
                     ),
                     Text(
-                      '${data?.temp}',
+                      '${data?.temp}°',
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 40,
@@ -148,7 +152,7 @@ class MyHomePage extends StatelessWidget {
                           child: Column(
                             children: [
                               Image.asset(
-                                'img/sunny.png',
+                                'img/wind_dir.png',
                                 width: size.width * 0.15,
                               ),
                               Text(
@@ -177,8 +181,31 @@ class MyHomePage extends StatelessWidget {
                 height: 20,
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Expanded(
+                  Column(
+                    children: [
+                      Text(
+                        'Güncelleme Tarihi: ',
+                        style: TextStyle(
+                            color: Colors.white.withOpacity(0.5),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 40),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        '${data?.last_update}',
+                        style: TextStyle(
+                            color: Colors.green,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 40),
+                      ),
+                    ],
+                  )
+
+                  /*Expanded(
                     child: Column(
                       children: [
                         Text(
@@ -306,7 +333,7 @@ class MyHomePage extends StatelessWidget {
                         ),
                       ],
                     ),
-                  ),
+                  ),*/
                 ],
               )
             ],

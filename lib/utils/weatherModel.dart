@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'havaDurum.dart';
+import 'package:weatherapp/utils/utils.dart';
 
 class weather {
   var cityName;
@@ -38,7 +37,7 @@ class weather {
     temp = json['current']['temp_c'];
     wind = json['current']['wind_kph'];
     humidity = json['current']['humidity'];
-    wind_dir = json['current']['wind_dir'];
+    wind_dir = getYon(json['current']['wind_dir']);
     pressure = json['current']['pressure_mb'];
     pricipe = json['current']['precip_mm'];
     last_update = json['current']['last_updated'];
