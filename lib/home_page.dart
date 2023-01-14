@@ -7,8 +7,11 @@ import 'package:intl/intl.dart';
 import 'package:weatherapp/getLocation.dart';
 import 'package:weatherapp/weatherData.dart';
 
+import 'date.dart';
+
 var dayInfo = DateTime.now();
-var dateFormat = DateFormat('EEEE, d MMM, yyyy').format(dayInfo);
+//var dateFormat = DateFormat('EEEE, d MMM, yyyy').format(dayInfo);
+var dateFormat = getToday(DateFormat('EEEE').format(dayInfo));
 
 class MyHomePage extends StatelessWidget {
   var client = weatherData();
@@ -58,7 +61,7 @@ class MyHomePage extends StatelessWidget {
                           height: 10,
                         ),
                         Text(
-                          dateFormat,
+                          dateFormat!,
                           style: TextStyle(color: Colors.white, fontSize: 15),
                         ),
                       ]),
@@ -109,7 +112,7 @@ class MyHomePage extends StatelessWidget {
                                 height: 10,
                               ),
                               Text(
-                                'wind',
+                                'Rüzgar',
                                 style: TextStyle(
                                     color: Colors.white.withOpacity(0.5),
                                     fontSize: 17),
@@ -121,7 +124,7 @@ class MyHomePage extends StatelessWidget {
                           child: Column(
                             children: [
                               Image.asset(
-                                'img/sunny.png',
+                                'img/nem.png',
                                 width: size.width * 0.15,
                               ),
                               Text(
@@ -133,7 +136,7 @@ class MyHomePage extends StatelessWidget {
                                 height: 10,
                               ),
                               Text(
-                                'humidity',
+                                'Nem',
                                 style: TextStyle(
                                     color: Colors.white.withOpacity(0.5),
                                     fontSize: 17),
@@ -157,7 +160,7 @@ class MyHomePage extends StatelessWidget {
                                 height: 10,
                               ),
                               Text(
-                                'wind direc',
+                                'Rüzgar yönü',
                                 style: TextStyle(
                                     color: Colors.white.withOpacity(0.5),
                                     fontSize: 17),
@@ -179,7 +182,7 @@ class MyHomePage extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(
-                          'gust',
+                          'degis',
                           style: TextStyle(
                               color: Colors.white.withOpacity(0.5),
                               fontWeight: FontWeight.bold,
@@ -199,7 +202,7 @@ class MyHomePage extends StatelessWidget {
                           height: 20,
                         ),
                         Text(
-                          'pressure',
+                          'Basınç',
                           style: TextStyle(
                               color: Colors.white.withOpacity(0.5),
                               fontWeight: FontWeight.bold,
@@ -222,7 +225,7 @@ class MyHomePage extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(
-                          'uv',
+                          'degis1',
                           style: TextStyle(
                               color: Colors.white.withOpacity(0.5),
                               fontWeight: FontWeight.bold,
@@ -242,7 +245,7 @@ class MyHomePage extends StatelessWidget {
                           height: 20,
                         ),
                         Text(
-                          'praciptation',
+                          'degis2',
                           style: TextStyle(
                               color: Colors.white.withOpacity(0.5),
                               fontWeight: FontWeight.bold,
@@ -265,7 +268,7 @@ class MyHomePage extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(
-                          'wind',
+                          'degis3',
                           style: TextStyle(
                               color: Colors.white.withOpacity(0.5),
                               fontWeight: FontWeight.bold,
@@ -285,7 +288,7 @@ class MyHomePage extends StatelessWidget {
                           height: 20,
                         ),
                         Text(
-                          'last update',
+                          'Güncelleme Tarihi: ',
                           style: TextStyle(
                               color: Colors.white.withOpacity(0.5),
                               fontWeight: FontWeight.bold,

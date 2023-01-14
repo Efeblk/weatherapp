@@ -1,4 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+import 'havaDurum.dart';
 
 class weather {
   var cityName;
@@ -31,7 +34,7 @@ class weather {
   weather.fromJson(Map<String, dynamic> json) {
     cityName = json['location']['name'];
     icon = json['current']['condition']['icon'];
-    condition = json['current']['condition']['text'];
+    condition = getHavaDurum(json['current']['condition']['text']);
     temp = json['current']['temp_c'];
     wind = json['current']['wind_kph'];
     humidity = json['current']['humidity'];
